@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <script type="text/javascript">
+    // 将某个js文件源码直接插入到页面(去除publicPath路径)，记得将配置文件中inject设为false
+    // 官方插件有示例：https://github.com/jantimon/html-webpack-plugin/blob/master/examples/inline/template.jade
+    <%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+  </script>
+</head>
+<body>
+  <%= htmlWebpackPlugin.options.date %>
+
+  <%= htmlWebpackPlugin.options.txt %>
+
+  <!-- <% for (var key in htmlWebpackPlugin.files) { %>
+    <%= key %> - <%= JSON.stringify(htmlWebpackPlugin.files[key]) %>
+  <% } %>
+  
+  <hr>
+  
+  <% for (var key in htmlWebpackPlugin.options) { %>
+    <%= key %> - <%= JSON.stringify(htmlWebpackPlugin.options[key]) %>
+  <% } %> -->
+  
+
+  <% for (var key in htmlWebpackPlugin.files.chunks) { %>
+    <% if (key != 'main') { %>
+      <script type="text/javascript" src="<%= 
+      htmlWebpackPlugin.files.chunks[key].entry %>"></script>
+    <% } %>
+  <% } %>
+
+
+  <!-- 我是一行注释 -->
+
+</body>
+</html>

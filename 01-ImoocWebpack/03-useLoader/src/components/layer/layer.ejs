@@ -1,0 +1,12 @@
+<div class="layerEjs">
+  <img src="../../assets/jt.jpg" /> 
+  <span>直接引用相对路径图片加载不出来</span>
+
+  <img src="${ require('../../assets/jt.jpg') }" />
+  <span>模板中引用相对路径图片的方法</span> 
+
+  <h3>this is <%= name %> layer</h3>
+  <% for (var i = 0; i < arr.length; i++) { %>
+     <p> <%= arr[i] %> </p>
+  <% } %>
+</div>

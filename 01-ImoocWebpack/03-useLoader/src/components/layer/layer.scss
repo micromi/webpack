@@ -1,0 +1,17 @@
+@import './modal.scss';
+
+.layer {
+  & + .layerEjs {
+    width: 400px;
+    height: 400px;
+    margin-top: 50px;
+    background-color: rgba(126,53,158,0.3);
+    > span {
+      display: inline-block;
+      width: 80px;
+    }
+  }
+  .flexScss {
+    transform:rotate(90deg);
+  }
+}
